@@ -31,8 +31,10 @@ const CalculatorButton = ({ button }) => {
         setShowAnswers(!showAnswers);
         break;
       case "()":
-        console.log(currentValue)
-        if (!checkBracket) {
+        if (
+          isNaN(currentValue.substr(currentValue.length - 1))||
+          currentValue.length === 0
+        ) {
           setCurrentValue(currentValue.concat("("));
         } else {
           setCurrentValue(currentValue.concat(")"));
@@ -45,7 +47,6 @@ const CalculatorButton = ({ button }) => {
     }
   };
 
-  
   return (
     <div onClick={handleClick} className="button">
       {button}
