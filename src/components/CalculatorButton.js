@@ -32,10 +32,8 @@ const CalculatorButton = ({ button }) => {
         break;
       case "()":
         if (!checkBracket) {
-          console.log("one");
           setCurrentValue(currentValue.concat("("));
         } else {
-          console.log("two");
           setCurrentValue(currentValue.concat(")"));
         }
         setCheckBracket(!checkBracket);
