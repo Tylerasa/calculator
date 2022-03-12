@@ -21,7 +21,7 @@
   width: 100%;
   background-color: #555;
   font-size: 50px;
-  overflow-y: scroll;
+  overflow: scroll;
   border-radius: 5px 5px 30px 30px;
   padding: 10px;
   box-sizing: border-box;
@@ -70,6 +70,7 @@
 
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 /* Track */

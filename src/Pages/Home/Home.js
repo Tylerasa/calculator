@@ -68,7 +68,7 @@ const Home = () => {
           case "Enter":
             let result;
             result = eval(currentValue);
-            setCurrentValue(result.toString());
+            setCurrentValue(parseFloat(result).toFixed(4));
             setAnswers([
               ...answers,
               {

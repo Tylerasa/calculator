@@ -12,7 +12,7 @@ const CalculatorButton = ({ button }) => {
     switch (button) {
       case "=":
         result = eval(currentValue);
-        setCurrentValue(result.toString());
+        setCurrentValue(parseFloat(result).toFixed(4));
         setAnswers([
           ...answers,
           {
