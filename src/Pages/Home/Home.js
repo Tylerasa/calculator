@@ -25,9 +25,38 @@ const Home = () => {
       ".",
       "DELETE",
       "=",
+      "(",
+      ")",
+      "ENTER",
+      "BACKSPACE",
+      "ESCAPE"
     ],
     []
   );
+
+  const calButton = [
+    "AC",
+    "()",
+    "ANS",
+    "/",
+    "7",
+    "8",
+    "9",
+    "*",
+    "4",
+    "5",
+    "6",
+    "-",
+    "1",
+    "2",
+    "3",
+    "+",
+    "0",
+    ".",
+    "DELETE",
+    "="
+  ];
+
   const [currentValue, setCurrentValue] = useState("");
   const [answers, setAnswers] = useState([]);
   const [showAnswers, setShowAnswers] = useState(false);
@@ -36,12 +65,22 @@ const Home = () => {
     event => {
       if (buttons.includes(event.key.toUpperCase())) {
         switch (event.key) {
-          case "=":
+          case "Enter":
+            let result;
+            result = eval(currentValue);
+            setCurrentValue(result.toString());
+            setAnswers([
+              ...answers,
+              {
+                exp: currentValue,
+                answer: result
+              }
+            ]);
             break;
-          case "AC":
+          case "Escape":
             setCurrentValue("");
             break;
-          case "DELETE":
+          case "Backspace":
             setCurrentValue(currentValue.slice(0, -1));
             break;
           case "ANS":
@@ -52,16 +91,6 @@ const Home = () => {
             break;
         }
       } else if (event.key === "Enter") {
-        let result;
-        result = eval(currentValue);
-        setCurrentValue(result.toString());
-        setAnswers([
-          ...answers,
-          {
-            exp: currentValue,
-            answer: result
-          }
-        ]);
       }
     },
     [answers, buttons, currentValue, showAnswers]
@@ -97,7 +126,7 @@ const Home = () => {
             })}
         </div>
         <div className="buttons">
-          {buttons.map((ele, i) => {
+          {calButton.map((ele, i) => {
             return <CalculatorButton button={ele} key={i} />;
           })}
         </div>
