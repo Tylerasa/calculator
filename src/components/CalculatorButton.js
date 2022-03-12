@@ -31,6 +31,7 @@ const CalculatorButton = ({ button }) => {
         setShowAnswers(!showAnswers);
         break;
       case "()":
+        console.log(currentValue)
         if (!checkBracket) {
           setCurrentValue(currentValue.concat("("));
         } else {
