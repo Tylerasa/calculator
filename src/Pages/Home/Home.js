@@ -81,6 +81,7 @@ const Home = () => {
             setCurrentValue("");
             break;
           case "Backspace":
+          case "Delete":
             setCurrentValue(currentValue.slice(0, -1));
             break;
           case "ANS":
